@@ -13,10 +13,9 @@ define([
   var workerCode = function () {
     try {
       self.onmessage = function(ev) {
-        var data = ev.data,
-          response = workerMethods.run(data);
-
-        if (data && data.gifshot) {
+        var data = ev.data;
+        if (data && data.gifshot){
+          var response = workerMethods.run(data);
           postMessage(response);
         }
       };
